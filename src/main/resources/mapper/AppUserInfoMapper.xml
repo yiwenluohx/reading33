@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ttread.mapper.AppUserInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.ttread.entity.AppUserInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="reg_grade" property="regGrade" jdbcType="VARCHAR" />
+    <result column="current_grade" property="currentGrade" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="INTEGER" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="district" property="district" jdbcType="VARCHAR" />
+    <result column="street" property="street" jdbcType="VARCHAR" />
+    <result column="cl_val" property="clVal" jdbcType="DECIMAL" />
+    <result column="gl_update_date" property="glUpdateDate" jdbcType="TIMESTAMP" />
+    <result column="points" property="points" jdbcType="INTEGER" />
+    <result column="points_updatetime" property="pointsUpdatetime" jdbcType="TIMESTAMP" />
+    <result column="order_total" property="orderTotal" jdbcType="INTEGER" />
+    <result column="total_updatetime" property="totalUpdatetime" jdbcType="TIMESTAMP" />
+    <result column="reg_time" property="regTime" jdbcType="TIMESTAMP" />
+    <result column="reg_organization" property="regOrganization" jdbcType="VARCHAR" />
+    <result column="current_organization" property="currentOrganization" jdbcType="VARCHAR" />
+    <result column="member_status" property="memberStatus" jdbcType="VARCHAR" />
+    <result column="member_updatetime" property="memberUpdatetime" jdbcType="TIMESTAMP" />
+    <result column="member_available" property="memberAvailable" jdbcType="DATE" />
+    <result column="member_expiry" property="memberExpiry" jdbcType="DATE" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="vip_status" property="vipStatus" jdbcType="INTEGER" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="uid_qq" property="uidQq" jdbcType="VARCHAR" />
+    <result column="uid_wechat" property="uidWechat" jdbcType="VARCHAR" />
+    <result column="uid_sina" property="uidSina" jdbcType="VARCHAR" />
+    <result column="is_remind" property="isRemind" jdbcType="INTEGER" />
+    <result column="is_push" property="isPush" jdbcType="INTEGER" />
+    <result column="is_test" property="isTest" jdbcType="INTEGER" />
+    <result column="uid_appleid" property="uidAppleid" jdbcType="VARCHAR" />
+    <result column="wechat_photo" property="wechatPhoto" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="is_valid" property="isValid" jdbcType="INTEGER" />
+    <result column="teacher_id" property="teacherId" jdbcType="INTEGER" />
+    <result column="class_id" property="classId" jdbcType="INTEGER" />
+    <result column="entry_year" property="entryYear" jdbcType="SMALLINT" />
+    <result column="test_num" property="testNum" jdbcType="INTEGER" />
+    <result column="dangdang_id" property="dangdangId" jdbcType="VARCHAR" />
+    <result column="quiz_time" property="quizTime" jdbcType="TIMESTAMP" />
+    <result column="join_status" property="joinStatus" jdbcType="INTEGER" />
+    <result column="uid_unionid" property="uidUnionid" jdbcType="VARCHAR" />
+    <result column="union_id" property="unionId" jdbcType="VARCHAR" />
+    <result column="channel_id" property="channelId" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="INTEGER" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, photo, reg_grade, current_grade, gender, birthday, province, city, district, 
+    street, cl_val, gl_update_date, points, points_updatetime, order_total, total_updatetime, 
+    reg_time, reg_organization, current_organization, member_status, member_updatetime, 
+    member_available, member_expiry, create_by, create_date, update_by, update_date, 
+    vip_status, email, uid_qq, uid_wechat, uid_sina, is_remind, is_push, is_test, uid_appleid, 
+    wechat_photo, ip, is_valid, teacher_id, class_id, entry_year, test_num, dangdang_id, 
+    quiz_time, join_status, uid_unionid, union_id, channel_id, del_flag, mobile
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_user_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_app_user_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ttread.entity.AppUserInfo" >
+    insert into t_app_user_info (id, name, photo, 
+      reg_grade, current_grade, gender, 
+      birthday, province, city, 
+      district, street, cl_val, 
+      gl_update_date, points, points_updatetime, 
+      order_total, total_updatetime, reg_time, 
+      reg_organization, current_organization, member_status, 
+      member_updatetime, member_available, member_expiry, 
+      create_by, create_date, update_by, 
+      update_date, vip_status, email, 
+      uid_qq, uid_wechat, uid_sina, 
+      is_remind, is_push, is_test, 
+      uid_appleid, wechat_photo, ip, 
+      is_valid, teacher_id, class_id, 
+      entry_year, test_num, dangdang_id, 
+      quiz_time, join_status, uid_unionid, 
+      union_id, channel_id, del_flag, 
+      mobile)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{photo,jdbcType=VARCHAR}, 
+      #{regGrade,jdbcType=VARCHAR}, #{currentGrade,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{district,jdbcType=VARCHAR}, #{street,jdbcType=VARCHAR}, #{clVal,jdbcType=DECIMAL}, 
+      #{glUpdateDate,jdbcType=TIMESTAMP}, #{points,jdbcType=INTEGER}, #{pointsUpdatetime,jdbcType=TIMESTAMP}, 
+      #{orderTotal,jdbcType=INTEGER}, #{totalUpdatetime,jdbcType=TIMESTAMP}, #{regTime,jdbcType=TIMESTAMP}, 
+      #{regOrganization,jdbcType=VARCHAR}, #{currentOrganization,jdbcType=VARCHAR}, #{memberStatus,jdbcType=VARCHAR}, 
+      #{memberUpdatetime,jdbcType=TIMESTAMP}, #{memberAvailable,jdbcType=DATE}, #{memberExpiry,jdbcType=DATE}, 
+      #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{vipStatus,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, 
+      #{uidQq,jdbcType=VARCHAR}, #{uidWechat,jdbcType=VARCHAR}, #{uidSina,jdbcType=VARCHAR}, 
+      #{isRemind,jdbcType=INTEGER}, #{isPush,jdbcType=INTEGER}, #{isTest,jdbcType=INTEGER}, 
+      #{uidAppleid,jdbcType=VARCHAR}, #{wechatPhoto,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
+      #{isValid,jdbcType=INTEGER}, #{teacherId,jdbcType=INTEGER}, #{classId,jdbcType=INTEGER}, 
+      #{entryYear,jdbcType=SMALLINT}, #{testNum,jdbcType=INTEGER}, #{dangdangId,jdbcType=VARCHAR}, 
+      #{quizTime,jdbcType=TIMESTAMP}, #{joinStatus,jdbcType=INTEGER}, #{uidUnionid,jdbcType=VARCHAR}, 
+      #{unionId,jdbcType=VARCHAR}, #{channelId,jdbcType=INTEGER}, #{delFlag,jdbcType=INTEGER}, 
+      #{mobile,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ttread.entity.AppUserInfo" >
+    insert into t_app_user_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="photo != null" >
+        photo,
+      </if>
+      <if test="regGrade != null" >
+        reg_grade,
+      </if>
+      <if test="currentGrade != null" >
+        current_grade,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="district != null" >
+        district,
+      </if>
+      <if test="street != null" >
+        street,
+      </if>
+      <if test="clVal != null" >
+        cl_val,
+      </if>
+      <if test="glUpdateDate != null" >
+        gl_update_date,
+      </if>
+      <if test="points != null" >
+        points,
+      </if>
+      <if test="pointsUpdatetime != null" >
+        points_updatetime,
+      </if>
+      <if test="orderTotal != null" >
+        order_total,
+      </if>
+      <if test="totalUpdatetime != null" >
+        total_updatetime,
+      </if>
+      <if test="regTime != null" >
+        reg_time,
+      </if>
+      <if test="regOrganization != null" >
+        reg_organization,
+      </if>
+      <if test="currentOrganization != null" >
+        current_organization,
+      </if>
+      <if test="memberStatus != null" >
+        member_status,
+      </if>
+      <if test="memberUpdatetime != null" >
+        member_updatetime,
+      </if>
+      <if test="memberAvailable != null" >
+        member_available,
+      </if>
+      <if test="memberExpiry != null" >
+        member_expiry,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="vipStatus != null" >
+        vip_status,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="uidQq != null" >
+        uid_qq,
+      </if>
+      <if test="uidWechat != null" >
+        uid_wechat,
+      </if>
+      <if test="uidSina != null" >
+        uid_sina,
+      </if>
+      <if test="isRemind != null" >
+        is_remind,
+      </if>
+      <if test="isPush != null" >
+        is_push,
+      </if>
+      <if test="isTest != null" >
+        is_test,
+      </if>
+      <if test="uidAppleid != null" >
+        uid_appleid,
+      </if>
+      <if test="wechatPhoto != null" >
+        wechat_photo,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+      <if test="isValid != null" >
+        is_valid,
+      </if>
+      <if test="teacherId != null" >
+        teacher_id,
+      </if>
+      <if test="classId != null" >
+        class_id,
+      </if>
+      <if test="entryYear != null" >
+        entry_year,
+      </if>
+      <if test="testNum != null" >
+        test_num,
+      </if>
+      <if test="dangdangId != null" >
+        dangdang_id,
+      </if>
+      <if test="quizTime != null" >
+        quiz_time,
+      </if>
+      <if test="joinStatus != null" >
+        join_status,
+      </if>
+      <if test="uidUnionid != null" >
+        uid_unionid,
+      </if>
+      <if test="unionId != null" >
+        union_id,
+      </if>
+      <if test="channelId != null" >
+        channel_id,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null" >
+        #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="regGrade != null" >
+        #{regGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="currentGrade != null" >
+        #{currentGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null" >
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="street != null" >
+        #{street,jdbcType=VARCHAR},
+      </if>
+      <if test="clVal != null" >
+        #{clVal,jdbcType=DECIMAL},
+      </if>
+      <if test="glUpdateDate != null" >
+        #{glUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="points != null" >
+        #{points,jdbcType=INTEGER},
+      </if>
+      <if test="pointsUpdatetime != null" >
+        #{pointsUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderTotal != null" >
+        #{orderTotal,jdbcType=INTEGER},
+      </if>
+      <if test="totalUpdatetime != null" >
+        #{totalUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regTime != null" >
+        #{regTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regOrganization != null" >
+        #{regOrganization,jdbcType=VARCHAR},
+      </if>
+      <if test="currentOrganization != null" >
+        #{currentOrganization,jdbcType=VARCHAR},
+      </if>
+      <if test="memberStatus != null" >
+        #{memberStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="memberUpdatetime != null" >
+        #{memberUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="memberAvailable != null" >
+        #{memberAvailable,jdbcType=DATE},
+      </if>
+      <if test="memberExpiry != null" >
+        #{memberExpiry,jdbcType=DATE},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vipStatus != null" >
+        #{vipStatus,jdbcType=INTEGER},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="uidQq != null" >
+        #{uidQq,jdbcType=VARCHAR},
+      </if>
+      <if test="uidWechat != null" >
+        #{uidWechat,jdbcType=VARCHAR},
+      </if>
+      <if test="uidSina != null" >
+        #{uidSina,jdbcType=VARCHAR},
+      </if>
+      <if test="isRemind != null" >
+        #{isRemind,jdbcType=INTEGER},
+      </if>
+      <if test="isPush != null" >
+        #{isPush,jdbcType=INTEGER},
+      </if>
+      <if test="isTest != null" >
+        #{isTest,jdbcType=INTEGER},
+      </if>
+      <if test="uidAppleid != null" >
+        #{uidAppleid,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatPhoto != null" >
+        #{wechatPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="isValid != null" >
+        #{isValid,jdbcType=INTEGER},
+      </if>
+      <if test="teacherId != null" >
+        #{teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="classId != null" >
+        #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="entryYear != null" >
+        #{entryYear,jdbcType=SMALLINT},
+      </if>
+      <if test="testNum != null" >
+        #{testNum,jdbcType=INTEGER},
+      </if>
+      <if test="dangdangId != null" >
+        #{dangdangId,jdbcType=VARCHAR},
+      </if>
+      <if test="quizTime != null" >
+        #{quizTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="joinStatus != null" >
+        #{joinStatus,jdbcType=INTEGER},
+      </if>
+      <if test="uidUnionid != null" >
+        #{uidUnionid,jdbcType=VARCHAR},
+      </if>
+      <if test="unionId != null" >
+        #{unionId,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null" >
+        #{channelId,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ttread.entity.AppUserInfo" >
+    update t_app_user_info
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null" >
+        photo = #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="regGrade != null" >
+        reg_grade = #{regGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="currentGrade != null" >
+        current_grade = #{currentGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null" >
+        district = #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="street != null" >
+        street = #{street,jdbcType=VARCHAR},
+      </if>
+      <if test="clVal != null" >
+        cl_val = #{clVal,jdbcType=DECIMAL},
+      </if>
+      <if test="glUpdateDate != null" >
+        gl_update_date = #{glUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="points != null" >
+        points = #{points,jdbcType=INTEGER},
+      </if>
+      <if test="pointsUpdatetime != null" >
+        points_updatetime = #{pointsUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderTotal != null" >
+        order_total = #{orderTotal,jdbcType=INTEGER},
+      </if>
+      <if test="totalUpdatetime != null" >
+        total_updatetime = #{totalUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regTime != null" >
+        reg_time = #{regTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regOrganization != null" >
+        reg_organization = #{regOrganization,jdbcType=VARCHAR},
+      </if>
+      <if test="currentOrganization != null" >
+        current_organization = #{currentOrganization,jdbcType=VARCHAR},
+      </if>
+      <if test="memberStatus != null" >
+        member_status = #{memberStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="memberUpdatetime != null" >
+        member_updatetime = #{memberUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="memberAvailable != null" >
+        member_available = #{memberAvailable,jdbcType=DATE},
+      </if>
+      <if test="memberExpiry != null" >
+        member_expiry = #{memberExpiry,jdbcType=DATE},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vipStatus != null" >
+        vip_status = #{vipStatus,jdbcType=INTEGER},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="uidQq != null" >
+        uid_qq = #{uidQq,jdbcType=VARCHAR},
+      </if>
+      <if test="uidWechat != null" >
+        uid_wechat = #{uidWechat,jdbcType=VARCHAR},
+      </if>
+      <if test="uidSina != null" >
+        uid_sina = #{uidSina,jdbcType=VARCHAR},
+      </if>
+      <if test="isRemind != null" >
+        is_remind = #{isRemind,jdbcType=INTEGER},
+      </if>
+      <if test="isPush != null" >
+        is_push = #{isPush,jdbcType=INTEGER},
+      </if>
+      <if test="isTest != null" >
+        is_test = #{isTest,jdbcType=INTEGER},
+      </if>
+      <if test="uidAppleid != null" >
+        uid_appleid = #{uidAppleid,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatPhoto != null" >
+        wechat_photo = #{wechatPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="isValid != null" >
+        is_valid = #{isValid,jdbcType=INTEGER},
+      </if>
+      <if test="teacherId != null" >
+        teacher_id = #{teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="classId != null" >
+        class_id = #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="entryYear != null" >
+        entry_year = #{entryYear,jdbcType=SMALLINT},
+      </if>
+      <if test="testNum != null" >
+        test_num = #{testNum,jdbcType=INTEGER},
+      </if>
+      <if test="dangdangId != null" >
+        dangdang_id = #{dangdangId,jdbcType=VARCHAR},
+      </if>
+      <if test="quizTime != null" >
+        quiz_time = #{quizTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="joinStatus != null" >
+        join_status = #{joinStatus,jdbcType=INTEGER},
+      </if>
+      <if test="uidUnionid != null" >
+        uid_unionid = #{uidUnionid,jdbcType=VARCHAR},
+      </if>
+      <if test="unionId != null" >
+        union_id = #{unionId,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null" >
+        channel_id = #{channelId,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ttread.entity.AppUserInfo" >
+    update t_app_user_info
+    set name = #{name,jdbcType=VARCHAR},
+      photo = #{photo,jdbcType=VARCHAR},
+      reg_grade = #{regGrade,jdbcType=VARCHAR},
+      current_grade = #{currentGrade,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      birthday = #{birthday,jdbcType=DATE},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      district = #{district,jdbcType=VARCHAR},
+      street = #{street,jdbcType=VARCHAR},
+      cl_val = #{clVal,jdbcType=DECIMAL},
+      gl_update_date = #{glUpdateDate,jdbcType=TIMESTAMP},
+      points = #{points,jdbcType=INTEGER},
+      points_updatetime = #{pointsUpdatetime,jdbcType=TIMESTAMP},
+      order_total = #{orderTotal,jdbcType=INTEGER},
+      total_updatetime = #{totalUpdatetime,jdbcType=TIMESTAMP},
+      reg_time = #{regTime,jdbcType=TIMESTAMP},
+      reg_organization = #{regOrganization,jdbcType=VARCHAR},
+      current_organization = #{currentOrganization,jdbcType=VARCHAR},
+      member_status = #{memberStatus,jdbcType=VARCHAR},
+      member_updatetime = #{memberUpdatetime,jdbcType=TIMESTAMP},
+      member_available = #{memberAvailable,jdbcType=DATE},
+      member_expiry = #{memberExpiry,jdbcType=DATE},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      vip_status = #{vipStatus,jdbcType=INTEGER},
+      email = #{email,jdbcType=VARCHAR},
+      uid_qq = #{uidQq,jdbcType=VARCHAR},
+      uid_wechat = #{uidWechat,jdbcType=VARCHAR},
+      uid_sina = #{uidSina,jdbcType=VARCHAR},
+      is_remind = #{isRemind,jdbcType=INTEGER},
+      is_push = #{isPush,jdbcType=INTEGER},
+      is_test = #{isTest,jdbcType=INTEGER},
+      uid_appleid = #{uidAppleid,jdbcType=VARCHAR},
+      wechat_photo = #{wechatPhoto,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      is_valid = #{isValid,jdbcType=INTEGER},
+      teacher_id = #{teacherId,jdbcType=INTEGER},
+      class_id = #{classId,jdbcType=INTEGER},
+      entry_year = #{entryYear,jdbcType=SMALLINT},
+      test_num = #{testNum,jdbcType=INTEGER},
+      dangdang_id = #{dangdangId,jdbcType=VARCHAR},
+      quiz_time = #{quizTime,jdbcType=TIMESTAMP},
+      join_status = #{joinStatus,jdbcType=INTEGER},
+      uid_unionid = #{uidUnionid,jdbcType=VARCHAR},
+      union_id = #{unionId,jdbcType=VARCHAR},
+      channel_id = #{channelId,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=INTEGER},
+      mobile = #{mobile,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

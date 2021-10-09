@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ttread.mapper.AppUserTtrRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.ttread.entity.AppUserTtrRecord" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="test_id" property="testId" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="residue_time" property="residueTime" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="questions_id" property="questionsId" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.ttread.entity.AppUserTtrRecord" extends="BaseResultMap" >
+    <result column="grade_quiz" property="gradeQuiz" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, test_id, user_id, status, residue_time, type, create_by, update_date, update_by, 
+    questions_id, create_date
+  </sql>
+  <sql id="Blob_Column_List" >
+    grade_quiz
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_app_user_ttr_record
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_app_user_ttr_record
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ttread.entity.AppUserTtrRecord" >
+    insert into t_app_user_ttr_record (id, test_id, user_id, 
+      status, residue_time, type, 
+      create_by, update_date, update_by, 
+      questions_id, create_date, grade_quiz
+      )
+    values (#{id,jdbcType=VARCHAR}, #{testId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{residueTime,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, 
+      #{createBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
+      #{questionsId,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{gradeQuiz,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ttread.entity.AppUserTtrRecord" >
+    insert into t_app_user_ttr_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="testId != null" >
+        test_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="residueTime != null" >
+        residue_time,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="questionsId != null" >
+        questions_id,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="gradeQuiz != null" >
+        grade_quiz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="testId != null" >
+        #{testId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="residueTime != null" >
+        #{residueTime,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="questionsId != null" >
+        #{questionsId,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gradeQuiz != null" >
+        #{gradeQuiz,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ttread.entity.AppUserTtrRecord" >
+    update t_app_user_ttr_record
+    <set >
+      <if test="testId != null" >
+        test_id = #{testId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="residueTime != null" >
+        residue_time = #{residueTime,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="questionsId != null" >
+        questions_id = #{questionsId,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gradeQuiz != null" >
+        grade_quiz = #{gradeQuiz,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.ttread.entity.AppUserTtrRecord" >
+    update t_app_user_ttr_record
+    set test_id = #{testId,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      residue_time = #{residueTime,jdbcType=INTEGER},
+      type = #{type,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      questions_id = #{questionsId,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      grade_quiz = #{gradeQuiz,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ttread.entity.AppUserTtrRecord" >
+    update t_app_user_ttr_record
+    set test_id = #{testId,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      residue_time = #{residueTime,jdbcType=INTEGER},
+      type = #{type,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      questions_id = #{questionsId,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
